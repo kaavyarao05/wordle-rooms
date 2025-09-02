@@ -75,7 +75,6 @@ def connect(auth):
          "message":"has entered the room"},
          to=room)
     rooms[room]['members']+=1
-    print(f"{name} joined room {room}")
 
 @socketio.on("disconnect")
 def disconnect():
@@ -90,7 +89,6 @@ def disconnect():
         {"name":name,
          "message":"has left the room"},
          to=room)
-    print(f"{name} left room {room}")
 
 def parse(msg:str,room):
     words=msg.split()
@@ -136,7 +134,6 @@ def message(data):
     }
     send(content,to=room)
     rooms[room]["messages"].append(content)
-    print(f"{session.get("name")}: {data['data']}")
 
 if __name__=="__main__":
     socketio.run(app,debug=True)
