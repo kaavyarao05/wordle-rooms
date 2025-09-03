@@ -136,4 +136,4 @@ def message(data):
     rooms[room]["messages"].append(content)
 
 if __name__=="__main__":
-    socketio.run(app,debug=True,allow_unsafe_werkzeug=True)
+    socketio.run(app,allow_unsafe_werkzeug=True)
